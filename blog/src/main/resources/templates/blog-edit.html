@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Upravit článek</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container">
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <h1>Upravit článek</h1>
+    <div th:each="el : ${post}">
+        <form method="post">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Zadejte název článku" class="form-control">
+            <input type="text" th:value="${el.annonce}" name="annonce" placeholder="Zadejte informace o článku" class="form-control mt-3">
+            <textarea th:text="${el.full_text}" name="full_text" rows="3" placeholder="Zadejte text článku" class="form-control mt-3"/>
+            <button type="submit" class="btn btn-success mt-3">Dokončit úpravy</button>
+        </form>
+    </div>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
